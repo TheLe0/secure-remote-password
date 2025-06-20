@@ -3,14 +3,14 @@ package br.com.tosin.services;
 import br.com.tosin.models.User;
 import br.com.tosin.repository.UserRepository;
 import br.com.tosin.utils.SRPUtil;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
+@ApplicationScoped
 public class UserService {
 
-    private final UserRepository userRepository;
-
-    public UserService() {
-        userRepository = new UserRepository();
-    }
+    @Inject
+    UserRepository userRepository;
 
     public void register(String username, String password) {
 

@@ -1,14 +1,15 @@
 package br.com.tosin;
 
 import br.com.tosin.services.UserService;
-import picocli.CommandLine;
+import jakarta.inject.Inject;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 
 @Command(name = "srp", mixinStandardHelpOptions = true)
 public class SecureRemotePasswordCommand implements Runnable {
 
-    private final UserService userService;
+    @Inject
+    UserService userService;
 
     @Parameters(index = "0", paramLabel = "<mode>", description = "Mode: register or login")
     String mode;
@@ -18,10 +19,6 @@ public class SecureRemotePasswordCommand implements Runnable {
 
     @Parameters(index = "2", paramLabel = "<password>", description = "Password")
     String password;
-
-    public SecureRemotePasswordCommand() {
-        userService = new UserService();
-    }
 
     @Override
     public void run() {
