@@ -1,16 +1,33 @@
 # secure-remote-password
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+This is a simple CLI project of using the [SRP (secure remote password)](https://medium.com/cloud-security/secure-remote-password-spa-0f91a620ebca) protcol.
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+What this protocol contains:
+
+- [X] Implementation of the SRP
+- [X] Demonstration on how to use in a real application
+- [X] Unit Tests
+
+Next steps:
+
+- [ ] More modes, maybe update password, forgot password and others
+- [ ] Use a database to persist the data, instead of in-memory
 
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
 
 ```shell script
-./mvnw quarkus:dev
+./mvnw -Dquarkus.args="<MODE> <USERNAME> <PASSWORD"
 ```
+
+Where:
+
+| Arg           | Description               | 
+|---------------|---------------------------|
+| MODE          | 'register' or 'login'     |
+| USERNAME      |Your username              |
+| PASSWORD      |Your password              |
 
 > **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
 
@@ -53,22 +70,3 @@ You can then execute your native executable with: `./target/secure-remote-passwo
 
 If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
 
-## Related Guides
-
-- Picocli ([guide](https://quarkus.io/guides/picocli)): Develop command line applications with Picocli
-
-## Provided Code
-
-### Picocli Example
-
-Hello and goodbye are civilization fundamentals. Let's not forget it with this example picocli application by changing the <code>command</code> and <code>parameters</code>.
-
-[Related guide section...](https://quarkus.io/guides/picocli#command-line-application-with-multiple-commands)
-
-Also for picocli applications the dev mode is supported. When running dev mode, the picocli application is executed and on press of the Enter key, is restarted.
-
-As picocli applications will often require arguments to be passed on the commandline, this is also possible in dev mode via:
-
-```shell script
-./mvnw quarkus:dev -Dquarkus.args='Quarky'
-```

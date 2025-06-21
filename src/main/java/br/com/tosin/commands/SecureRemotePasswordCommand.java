@@ -1,4 +1,4 @@
-package br.com.tosin;
+package br.com.tosin.commands;
 
 import br.com.tosin.services.UserService;
 import jakarta.inject.Inject;
